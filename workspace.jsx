@@ -45,7 +45,7 @@ export const updateState = (event, previousState) => {
         case "spaces":
             let { spaces } = event;
             if (!spaces) {
-              spaces = [];
+              spaces = [0];
             } else {
               spaces = JSON.parse(spaces);
               spaces = spaces.map(space => parseInt(space))

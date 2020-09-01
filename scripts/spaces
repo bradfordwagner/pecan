@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+/usr/local/bin/yabai -m query --displays --display  | /usr/local/bin/jq -r '.spaces | tostring'

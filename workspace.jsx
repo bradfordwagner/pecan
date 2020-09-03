@@ -3,7 +3,7 @@ import { run } from 'uebersicht'
 const ws ="bash pecan/scripts/ws";
 const spaces ="bash pecan/scripts/spaces";
 const display ="bash pecan/scripts/display";
-export const refreshFrequency = 1000; // ms
+export const refreshFrequency = 10000; // ms
 
 export const command = dispatch => {
     run(ws).then(workspace => dispatch({ type: "workspace", workspace }))

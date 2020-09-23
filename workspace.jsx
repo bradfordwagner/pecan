@@ -1,17 +1,19 @@
 import { run } from 'uebersicht'
 
-const ws ="bash pecan/scripts/ws";
-const spaces ="bash pecan/scripts/spaces";
-const display ="bash pecan/scripts/display";
+const ws = "bash pecan/scripts/ws";
+const spaces = "bash pecan/scripts/spaces";
+const display = "bash pecan/scripts/display";
+const layout = "bash pecan/scripts/layout";
 export const refreshFrequency = 10000; // ms
 
 export const command = dispatch => {
     run(ws).then(workspace => dispatch({ type: "workspace", workspace }))
     run(display).then(display => dispatch({ type: "display", display }))
     run(spaces).then(spaces => dispatch({ type: "spaces", spaces }))
+    run(layout).then(layout => dispatch({ type: "layout", layout }))
 }
 
-export const render = ({ workspace, spaces, display }) => {
+export const render = ({ workspace, spaces, display, layout }) => {
     let workspaces = spaces.map((space) => {
       let style = {
           "padding": "0.5em",
@@ -21,9 +23,13 @@ export const render = ({ workspace, spaces, display }) => {
       }
       return (<span key={space} style={style}>{space}</span>)
     })
+
+    let selectedColor = {color: "#bd93f9"}
+
     return (<div className='screen'>
         <div className='pecanworkspace'>
-            <span>D: { display } </span>
+            <span style={selectedColor}>{ layout } </span>
+            <span>D: { display }</span>
             <span>W: { workspaces }</span>
         </div>
     </div>);
@@ -33,6 +39,7 @@ export const initialState = {
   workspace: 0,
   spaces:    [0],
   display:   0,
+  layout:    "bsp"
 }
 
 export const updateState = (event, previousState) => {
@@ -42,6 +49,10 @@ export const updateState = (event, previousState) => {
       workspace = workspace.trim();
       workspace = parseInt(workspace);
       return {...previousState, workspace}
+    case "layout":
+      let { layout } = event;
+      layout = layout.trim();
+      return {...previousState, layout}
     case "display":
       const { display } = event;
       return {...previousState, display}

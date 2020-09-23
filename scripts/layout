@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+/usr/local/bin/yabai -m query --spaces --space | /usr/local/bin/jq -r '.type'

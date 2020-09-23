@@ -29,7 +29,7 @@ export const render = ({ workspace, spaces, display, layout }) => {
     return (<div className='screen'>
         <div className='pecanworkspace'>
             <span style={selectedColor}>{ layout } </span>
-            <span>D: { display }</span>
+            <span>D: <span style={selectedColor}>{ display }</span></span>
             <span>W: { workspaces }</span>
         </div>
     </div>);

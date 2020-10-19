@@ -17,20 +17,25 @@ export const render = ({ workspace, spaces, display, layout }) => {
     let workspaces = spaces.map((space) => {
       let style = {
           "padding": "0.5em",
+          "color": "#4C566A",
+          // "color": "#3B4252",
       };
       if (space === workspace) {
-          style.color = "#bd93f9"
+          style.color = "#81A1C1"
       }
       return (<span key={space} style={style}>{space}</span>)
     })
 
-    let selectedColor = {color: "#bd93f9"}
+    let selectedColor = {color: "#81A1C1"};
+    let dashColor = {color: "#4C566A"};
 
     return (<div className='screen'>
         <div className='pecanworkspace'>
             <span style={selectedColor}>{ layout } </span>
-            <span>D: <span style={selectedColor}>{ display }</span></span>
-            <span>W: { workspaces }</span>
+            <span style={dashColor}>-</span>
+            <span style={selectedColor}>{ display }</span>
+            <span style={dashColor}>-</span>
+            <span>{ workspaces }</span>
         </div>
     </div>);
 }

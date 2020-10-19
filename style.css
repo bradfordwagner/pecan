@@ -4,7 +4,7 @@
 :root {
   /* background colors */
   --pecan-bg: #fafafa;
-  --pecan-bg-pecanworkspace: #202020;
+  --pecan-bg-pecanworkspace: #2E3440;
   --pecan-bg-pecannetwork: var(--pecan-bg-pecanworkspace);
   --pecan-bg-pecandate: var(--pecan-bg-pecanworkspace);
   --pecan-bg-pecanbattery: var(--pecan-bg-pecanworkspace);
@@ -12,7 +12,7 @@
   --pecan-xanthia-bg: var(--pecan-bg-pecanworkspace);
   --pecan-xanthia-image-bg: var(--pecan-bg-pecanworkspace);
   /* foreground colors */
-  --pecan-fg-pecanworkspace: #fafafa;
+  --pecan-fg-pecanworkspace: #D8DEE9;
   --pecan-fg-pecannetwork: var(--pecan-fg-pecanworkspace);
   --pecan-fg-pecandate: var(--pecan-fg-pecanworkspace);
   --pecan-fg-pecanbattery: var(--pecan-fg-pecanworkspace);
